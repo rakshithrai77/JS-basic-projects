@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        #clock
+        {
+            text-align: center;
+            position: absolute;
+            width:100vw;
+            top:40vh;
+            color:lime;
+            letter-spacing: 0.2rem;
+            font-size: 4rem;
+
+        }
+    </style>
+
+</head>
+<body>
+<h1 id='clock'></h1>
+<script type="text/javascript">
+function time(){
+    let date= new Date();
+    let h=date.getHours();
+    let m=date.getMinutes();
+    let s=date.getSeconds();
+    let session='AM';
+    if (h==0)
+        h=12;
+    if(h>12);
+        h=h-12;
+    h=h<10? '0'+h:h;
+    m=m<10? '0'+m:m;
+    s=s<10? '0'+s:s;
+    document.getElementById('clock').innerHTML= h + ":" + m +":" +s+ session;}
+    setInterval(time,1000);
+</script>
+</body>
+</html>

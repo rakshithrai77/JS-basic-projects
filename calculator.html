@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        h1{
+            margin-bottom:10px;
+            color:greenyellow
+        }
+        input[type='button']
+        {
+            background-color: black;
+            color:white;
+            width:50px;
+            border-radius: 10px;
+        }
+        input[type='text']{
+            border-radius:10px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<h1>Rakshith Calculator</h1>
+<table >
+    <tr>
+    <td colspan="3"><input type="text" id="result"></td>
+    <td><input type='button' value="C" onclick="clr()"></td>
+    </tr>
+    <tr>
+        <td><input type='button' value="1" onClick="display('1')"></td>
+        <td><input type='button' value="2" onClick="display('2')"></td>
+        <td><input type='button' value="3" onClick="display('3')"></td>
+        <td><input type='button' value="+" onClick="display('+')"></td>
+    </tr>
+    <tr>
+        <td><input type='button' value="4" onClick="display('4')"></td>
+        <td><input type='button' value="5" onClick="display('5')"></td>
+        <td><input type='button' value="6" onClick="display('6')"></td>
+        <td><input type='button' value="-" onClick="display('-')"></td>
+    </tr>
+    <tr>
+        <td><input type='button' value="7" onClick="display('7')"></td>
+        <td><input type='button' value="8" onClick="display('8')"></td>
+        <td><input type='button' value="9" onClick="display('9')"></td>
+        <td><input type='button' value="/" onClick="display('/')"></td>
+    </tr>
+    <tr>
+        <td><input type='button' value="." onClick="display('.')"></td>
+        <td><input type='button' value="0" onClick="display('0')"></td>
+        <td><input type='button' value="=" onClick="evalua()"></td>
+        <td><input type='button' value="*" onClick="display('*')"></td>
+    </tr>
+</table>
+<script type="text/javascript">
+    function clr()
+    {
+        document.getElementById('result').value="";
+    }
+    function display(val)
+    {
+        document.getElementById('result').value+=val;
+    }
+    function evalua()
+    {
+        let val=document.getElementById('result').value;
+        try{
+        let y= eval(val);
+        document.getElementById('result').value=eval(val);
+        }
+        catch(error)
+        {
+            alert("Enter correct input");
+            clr();
+        }
+    }
+    </script>
+</body>
+</html>
